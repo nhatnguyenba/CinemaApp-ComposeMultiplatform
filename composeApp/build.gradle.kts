@@ -63,6 +63,9 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtimeCompose)
             implementation("org.jetbrains.compose.material:material-icons-extended:1.7.3")
 
+            // ViewModel
+            implementation("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.9.4")
+
             // Logging
             implementation("co.touchlab:kermit:2.0.4")
 
@@ -71,6 +74,7 @@ kotlin {
 
             implementation("io.insert-koin:koin-core:4.1.1")
             implementation("io.insert-koin:koin-compose:4.1.1")
+            implementation("io.insert-koin:koin-compose-viewmodel:4.1.1")
             implementation("io.ktor:ktor-client-core:3.3.0")
             implementation("io.ktor:ktor-client-content-negotiation:3.3.0")
             implementation("io.ktor:ktor-serialization-kotlinx-json:3.3.0")

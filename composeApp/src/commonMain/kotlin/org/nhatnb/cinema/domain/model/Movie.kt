@@ -24,5 +24,5 @@ data class Movie(
         get() = "${ApiConstants.IMAGE_BASE_URL}$posterPath"
 
     val fullBackdropUrl: String
-        get() = "${ApiConstants.IMAGE_BASE_URL}${backdropPath ?: posterPath}"
+        get() = "${ApiConstants.IMAGE_ORIGINAL_URL}${backdropPath ?: posterPath}"
 }

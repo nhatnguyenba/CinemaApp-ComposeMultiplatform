@@ -10,7 +10,7 @@ import org.nhatnb.cinema.presentation.ui.screen.HomeScreen
 import org.nhatnb.cinema.presentation.ui.theme.AppTheme
 
 @Composable
-fun App() = AppTheme {
+fun App() {
     var currentScreen by remember { mutableStateOf("home") }
     var selectedMovieId by remember { mutableStateOf<Long?>(null) }
 

@@ -27,7 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import org.koin.compose.koinInject
+import org.koin.compose.viewmodel.koinViewModel
 import org.nhatnb.cinema.presentation.navigation.BottomNavigationBar
 import org.nhatnb.cinema.presentation.ui.component.CategoryChip
 import org.nhatnb.cinema.presentation.ui.component.FeaturedMovie
@@ -43,7 +43,7 @@ fun HomeScreen(
     onSeeAllClick: (String) -> Unit,
     currentRoute: String,
     onNavigationItemSelected: (String) -> Unit,
-    viewModel: HomeViewModel = koinInject()
+    viewModel: HomeViewModel = koinViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
 

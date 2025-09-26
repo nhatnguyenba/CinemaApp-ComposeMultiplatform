@@ -1,6 +1,7 @@
 package org.nhatnb.cinema.data.repository
 
 import org.nhatnb.cinema.data.remote.datasource.MovieRemoteDataSource
+import org.nhatnb.cinema.data.remote.dto.MovieDetailResponseDto
 import org.nhatnb.cinema.data.remote.dto.MovieDto
 import org.nhatnb.cinema.domain.model.Movie
 import org.nhatnb.cinema.domain.repository.MovieRepository
@@ -22,9 +23,9 @@ class MovieRepositoryImpl(
         return try {
             val response = remoteDataSource.getMovieDetail(movieId)
             // Giả sử API trả về danh sách, lấy phần tử đầu tiên
-            val movieDto = response.results.firstOrNull()
+            val movieDetailResponseDto = response
                 ?: throw IllegalArgumentException("Movie not found")
-            Result.success(movieDto.toMovie())
+            Result.success(movieDetailResponseDto.toMovie())
         } catch (e: Exception) {
             Result.failure(e)
         }
@@ -41,9 +42,23 @@ class MovieRepositoryImpl(
             title = title,
             overview = overview,
             posterPath = posterPath,
+            backdropPath = backdropPath,
             voteAverage = voteAverage,
             releaseDate = releaseDate,
             genreIds = genreIds
+        )
+    }
+
+    private fun MovieDetailResponseDto.toMovie(): Movie {
+        return Movie(
+            id = id,
+            title = title,
+            overview = overview,
+            posterPath = posterPath,
+            backdropPath = backdropPath,
+            voteAverage = voteAverage,
+            releaseDate = releaseDate,
+            genreIds = genres?.map { id } ?: emptyList()
         )
     }
 }

@@ -1,5 +1,6 @@
 package org.nhatnb.cinema.presentation.viewmodel
 
+import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,7 +15,7 @@ import org.nhatnb.cinema.domain.usecase.GetPopularMoviesUseCase
 class HomeViewModel(
     private val getPopularMoviesUseCase: GetPopularMoviesUseCase,
     private val getMovieDetailUseCase: GetMovieDetailUseCase
-) {
+) : ViewModel() {
     private val _uiState = MutableStateFlow(HomeUiState())
     val uiState: StateFlow<HomeUiState> = _uiState.asStateFlow()
 
@@ -50,7 +51,8 @@ class HomeViewModel(
                 } else {
                     _uiState.value = _uiState.value.copy(
                         isLoading = false,
-                        errorMessage = moviesResult.exceptionOrNull()?.message ?: "Failed to load movies"
+                        errorMessage = moviesResult.exceptionOrNull()?.message
+                            ?: "Failed to load movies"
                     )
                 }
             } catch (e: Exception) {
@@ -83,7 +85,8 @@ class HomeViewModel(
                 } else {
                     _uiState.value = _uiState.value.copy(
                         isLoading = false,
-                        errorMessage = movieDetailResult.exceptionOrNull()?.message ?: "Failed to load movie details"
+                        errorMessage = movieDetailResult.exceptionOrNull()?.message
+                            ?: "Failed to load movie details"
                     )
                 }
             } catch (e: Exception) {
