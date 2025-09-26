@@ -95,17 +95,7 @@ fun FeaturedMovie(
             Spacer(modifier = Modifier.height(8.dp))
 
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(
-                    text = "HD 4k",
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier
-                        .background(
-                            MaterialTheme.colorScheme.surfaceVariant,
-                            RoundedCornerShape(4.dp)
-                        )
-                        .padding(horizontal = 8.dp, vertical = 2.dp)
-                )
+                QualityChips(chipType = ChipType.SMALL)
 
                 Spacer(modifier = Modifier.width(8.dp))
 

@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.PlayArrow
@@ -41,6 +40,8 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import org.koin.compose.viewmodel.koinViewModel
 import org.nhatnb.cinema.presentation.navigation.BottomNavigationBar
+import org.nhatnb.cinema.presentation.ui.component.ChipType
+import org.nhatnb.cinema.presentation.ui.component.QualityChips
 import org.nhatnb.cinema.presentation.ui.theme.DarkBackground
 import org.nhatnb.cinema.presentation.viewmodel.HomeViewModel
 
@@ -302,17 +303,7 @@ private fun MovieDetailContent(
                 Spacer(modifier = Modifier.height(8.dp))
 
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = "HD 4k",
-                        style = MaterialTheme.typography.labelMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier
-                            .background(
-                                MaterialTheme.colorScheme.surfaceVariant,
-                                RoundedCornerShape(4.dp)
-                            )
-                            .padding(horizontal = 8.dp, vertical = 2.dp)
-                    )
+                    QualityChips(chipType = ChipType.MEDIUM)
 
                     Spacer(modifier = Modifier.width(8.dp))
 
